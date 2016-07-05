@@ -9,7 +9,7 @@ makeSuite('Test Suite 2', function() {
       .elementByAccessibilityId('Arcs')
         .should.eventually.exist
       .back()
-      .elementByName('App')
+      .elementByAccessibilityId('App')
         .should.eventually.exist;
   });
 
