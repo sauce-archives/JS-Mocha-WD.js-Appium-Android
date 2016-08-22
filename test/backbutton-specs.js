@@ -2,7 +2,7 @@ var makeSuite = require('./helpers').makeSuite;
 
 makeSuite('Test Suite 2', function() {
 
-  it('should verify back button', function() {
+  it('should verify back button', function(done) {
     driver
       .elementByAccessibilityId('Graphics')
       .click()
@@ -10,7 +10,7 @@ makeSuite('Test Suite 2', function() {
         .should.eventually.exist
       .back()
       .elementByAccessibilityId('App')
-        .should.eventually.exist;
+        .should.eventually.exist.nodeify(done);;
   });
 
 });
