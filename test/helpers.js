@@ -26,16 +26,15 @@ function beforeEachExample(done) {
             deviceName: process.env.deviceName,
             platformVersion: process.env.platformVersion,
             platformName: process.env.platformName,
-            app: 'http://appium.s3.amazonaws.com/ContactManager.apk'
+            app: 'https://github.com/appium/sample-code/blob/master/sample-code/apps/ApiDemos/bin/ApiDemos-debug.apk?raw=true'
         })
         .nodeify(done);
 };
 
 function afterEachExample(done) {
-    // allPassed = allPassed && (this.currentTest.state === 'passed');
     driver
         .quit()
-        .sauceJobStatus(true)
+        .sauceJobStatus(this.currentTest.state === 'passed')
         .nodeify(done);
 };
 
